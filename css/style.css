@@ -30,6 +30,8 @@
   --colore-modal-button: 1px solid rgba(0, 0, 0, 0.1);
   --collor-modal-button:#ffeeee;
   --collor-modal-close:#8d8c8c;
+  --emphasizing-cardcolor: rgba(255, 0, 0, 0.959);
+
 /* advantages */
   --items-adv: 4;
   --indent: 30px;
@@ -540,7 +542,43 @@ margin-right: 30px;
 .footer .logo {
   color: var(--primary-bg-color);
 }
+/* ------------- */
+.emphasizing,
+.emphasizing-card {
+  position: relative;
+}
 
+.emphasizing::after {
+  content: '';
+  width: 0;
+  height: 2.5px;
+  position: absolute;
+  bottom: -2.5px;
+  left: 0;
+  background: var(--accent-color);
+  transition: width 0.5s, left 0.5s;
+}
+
+.emphasizing:hover::after {
+  width: 100%;
+}
+
+.emphasizing-card::after{
+  content: '';
+  width: 0;
+  height: 2.5px;
+  position: absolute;
+  bottom: -2.5px;
+  right: 0;
+  background: var(--emphasizing-cardcolor);
+  transition: width 0.5s, left 0.5s;
+}
+
+.emphasizing-card:hover::after {
+  width: 100%;
+  left: 0;
+}
+/* -------- */
 .footer>.container {
   display: flex;
   align-items: baseline;
@@ -883,13 +921,12 @@ margin-right: 30px;
 
 .modal-button:hover{
 
-  transform: perspective(30px) rotateY(360deg);
+  /* transform: perspective(30px) rotateY(360deg); */
 
   fill: var(--collor-modal-close);
   background-color: var(--collor-modal-button);
   border: var(--colore-modal-button);
 }
-
 
 .footer.address .link::after:hover,
 .footer.address .link::after:focus,
